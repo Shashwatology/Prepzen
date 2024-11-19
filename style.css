@@ -443,3 +443,33 @@ button:after {
   .color-btn:nth-child(4) { background-color: linear-gradient(135deg, #56ab2f, #a8e063); }
   .color-btn:nth-child(5) { background-color: linear-gradient(135deg, #36d1dc, #5b86e5); }
   
+
+  .content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px yellow ;
+    margin: 20px auto;
+    max-width: 800px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: yellow;
+    animation: glow 3s infinite alternate;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)); /* Dark background */
+  }
+
+  @keyframes glow {
+    0% {
+        border-color: black;
+        box-shadow: 0 0 10px yellow;
+    }
+    100% {
+        border-color: aqua;
+        box-shadow: 0 0 30px yellow;
+    }
+}
+  
+  
+  
+  
+ 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrepZen Navbar</title>
+    <title>PrepZen</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
         <ul class="nav-links">
             <li><a href="courses.html">Courses</a></li>
             <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="contributors.html">Contributors</a></li>
+            <li><a href="contributor.html">Contributors</a></li>
             <li><a href="documents.html">Documents</a></li>
             <li><a href="roadmaps.html">Roadmaps</a></li>
         </ul>
@@ -29,8 +29,8 @@
             <span style="color:aqua">Learn from here</span>
         </div>
         <div class="subtitle">
-            <p>Elevate your academic journey with our website!</p>
-            <p>Find notes, past question papers, and essential tools to excel academically.</p>
+            <p>Elevate your Academic journey with our website!</p>
+            <p>Find notes, Past year Question papers, and essential tools to excel academically.</p>
             <p>Join thousands of students who trust us as their go-to resource hub.</p>
             <p><strong>Take the next step towards success today!</strong></p>
         </div>
@@ -48,18 +48,19 @@
         </div>
         
         <!-- color palate bar  -->
-        <div class="color-palette">
-            <button class="color-btn" data-color="#38b2ac"></button>
-            <button class="color-btn" data-color="#4299e1"></button>
-            <button class="color-btn" data-color="#805ad5"></button>
-            <button class="color-btn" data-color="#f6ad55"></button>
-            <button class="color-btn" data-color="#e53e3e"></button>
-          </div>
-          
+        <div class="content">
+            <h2>Welcome to PerpZen!</h2>
+            <p>Customize the look and enjoy your personalized study experience.</p>
+            <div class="color-palette">
+                <button class="color-btn" data-color="#38b2ac"></button>
+                <button class="color-btn" data-color="#4299e1"></button>
+                <button class="color-btn" data-color="#805ad5"></button>
+                <button class="color-btn" data-color="#f6ad55"></button>
+                <button class="color-btn" data-color="#e53e3e"></button>
+            </div>
+        </div>
 
-
-       
-    
+        
     </header>
 
     <!-- Footer -->
@@ -75,9 +76,12 @@
     </footer>
     
     <script>
+
         function redirectTo(page) {
             window.location.href = page;
         }
+
+        // Color palat script
         const buttons = document.querySelectorAll('.color-btn');
         buttons.forEach(button => {
         button.addEventListener('click', () => {
