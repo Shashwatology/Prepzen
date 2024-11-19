@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrepZen</title>
+    <title>PrepZen Navbar</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body >
+<body>
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">
             <h1>PrepZen</h1>
@@ -15,11 +16,13 @@
             <li><a href="courses.html">Courses</a></li>
             <li><a href="contact.html">Contact Us</a></li>
             <li><a href="contributors.html">Contributors</a></li>
-            <li><a href="documents.html">Documents To Download </a></li>
+            <li><a href="documents.html">Documents</a></li>
             <li><a href="roadmaps.html">Roadmaps</a></li>
         </ul>
     </nav>
+    
 
+    <!-- Hero Section -->
     <header class="hero-section">
         <div class="typing-effect">
             <span>PrepZen</span>
@@ -30,17 +33,42 @@
             <p>Join thousands of students who trust us as their go-to resource hub.</p>
             <p><strong>Take the next step towards success today!</strong></p>
         </div>
-    </header>
-    
 
-    <footer>
-        <div class="footer-section about-section">
-            <a href="contributor.html">About us</a>
+
+        <div class="section-wrapper">
+            
+            <p>Select your course and branch to get started:</p>
+            <div class="buttons">
+                <button onclick="redirectTo('btech.html')">Start Learning: BTech</button>
+                <button onclick="redirectTo('bvoc.html')">Start Learning: BVoc</button>
+            </div>
+            <a class="buy-coffee" href="https://www.buymeacoffee.com/YourProfile" target="_blank">Buy Us a Coffee ☕</a>
+        
         </div>
-        <div class="footer-section">
+        
+
+
+
+       
+    
+    </header>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-section copyright-section">
             <p>&copy; PrepZen 2024</p>
+        </div>
+        <div class="footer-section about-section">
+            <a href="about.html">About Us</a> | 
+            <a href="contact.html">Contact Us</a> | 
+            <a href="contributor.html">Contribute Us </a>
         </div>
     </footer>
     
+    <script>
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+    </script>
 </body>
 </html>
