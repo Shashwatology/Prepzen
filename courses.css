@@ -1,29 +1,45 @@
-/* Full-screen animated gradient background */
+/* Full-screen black background with golden radial glow */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #4facfe, #00f2fe, #43e97b, #f8ffae);
-    background-size: 300% 300%;
-    animation: gradient-animation 8s ease infinite;
-    color: white;
+    background-color: black;
+    overflow: hidden;
+    position: relative;
+    color: white; /* Ensure content is visible */
 }
 
-@keyframes gradient-animation {
+/* Adding a golden radial gradient with animation */
+body:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(255, 223, 0, 0.4), transparent 60%);
+    transform: translate(-50%, -50%) scale(1);
+    animation: golden-glow 5s infinite alternate ease-in-out;
+    pointer-events: none; /* Makes sure it's non-interactive */
+    z-index: -1;
+}
+
+/* Animation for the glow effect */
+@keyframes golden-glow {
     0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.7;
     }
     100% {
-        background-position: 0% 50%;
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
     }
 }
+
 
 /* Centered section with glowing borders */
 .section-wrapper {
@@ -56,7 +72,39 @@ body {
     margin: 2rem 0;
 }
 
+/* Button styling */
 button {
+    position: relative;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+    background: linear-gradient(135deg, #b8860b, #ffd700); /* Default gold gradient */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    /* transition: all 0.4s ease-in-out; */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Hover effect */
+button:hover {
+    background: linear-gradient(135deg, #ffd700, #ffcc00, #f5deb3); /* Enhanced gold glow */
+    color: black; /* Change text color for contrast */
+    box-shadow: 0 8px 15px rgba(255, 215, 0, 0.6), 0 4px 10px rgba(0, 0, 0, 0.2); /* Bright glowing shadow */
+    transform: translateY(-3px); /* Lift the button slightly */
+}
+
+/* Optional Active/Pressed State */
+button:active {
+    transform: translateY(2px); /* Simulates button press */
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4), 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* button {
     position: relative;
     padding: 1rem 2rem;
     font-size: 1.2rem;
@@ -82,14 +130,14 @@ button:before {
     left: -100%;
     width: 200%;
     height: 100%;
-    background: linear-gradient(to right, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+    background: linear-gradient(to right, Gold, #fad0c4, #fbc2eb, #a18cd1);
     z-index: -1;
     transition: left 0.4s ease-in-out;
 }
 
 button:hover:before {
     left: 0;
-}
+} */
 
 /* Buy Coffee button */
 .buy-coffee {
