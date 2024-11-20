@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #000, #1a1a1a);
+      color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .animated-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255, 223, 0.4, 0.2), transparent 80%);
+      animation: pulse 6s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.4;
+      }
+    }
+
+    .container {
+      z-index: 1;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container h1 {
+      font-size: 2.5rem;
+      color: #ffdf00;
+      margin-bottom: 10px;
+    }
+
+    .container p {
+      color: #cfcfcf;
+      font-size: 1rem;
+      margin-bottom: 40px;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .button-group a {
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+      font-size: 1.2rem;
+      background: #ffdf00;
+      border: none;
+      border-radius: 8px;
+      padding: 15px 30px;
+      cursor: pointer;
+      box-shadow: 0 8px 15px rgba(255, 223, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .button-group a:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(255, 223, 0, 0.4);
+    }
+
+    /* footer {
+      position: absolute;
+      bottom: 20px;
+      color: #777;
+      font-size: 0.8rem;
+    } */
+  </style>
+</head>
+<body>
+  <div class="animated-bg"></div>
+  <div class="container">
+    <h1>Get in Touch with Us</h1>
+    <p>We value your feedback and suggestions! Feel free to reach out through any of the options below:</p>
+    <div class="button-group">
+      <a href="https://forms.gle/L1u4J2iCSg87fokN7" target="_blank">Give Us Feedback</a>
+      <a href="https://www.instagram.com/direct/t/103808317681435/" target="_blank">DM on Instagram</a>
+      <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZWPLPdLmshGckRmbxvhJzMsHQTBCNjcSqPpXfmqscPsQGPBJZpXRbMnHxQnmGMSClPHwL">Mail Us Your Query</a>
+    </div>
+  </div>
+  <footer style=" 
+    position: absolute;
+    bottom: 20px;
+    color: #b1a6a6;
+    font-size: 0.8rem;
+    ">
+    Made with Love -  <a href="contactus.html" style="color: #ffdf00;"> Team PrepZen</a>
+  </footer>
+</body>
+</html>
