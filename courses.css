@@ -1,0 +1,120 @@
+/* Full-screen animated gradient background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #4facfe, #00f2fe, #43e97b, #f8ffae);
+    background-size: 300% 300%;
+    animation: gradient-animation 8s ease infinite;
+    color: white;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Centered section with glowing borders */
+.section-wrapper {
+    background: rgba(0, 0, 0, 0.7);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+    text-align: center;
+    animation: border-glow 3s infinite alternate;
+}
+
+@keyframes border-glow {
+    0% {
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+    100% {
+        border-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    }
+}
+
+/* Buttons styling */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+button {
+    position: relative;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #1abc9c, #3498db);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px 5px rgba(0, 255, 255, 0.5);
+}
+
+button:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+    z-index: -1;
+    transition: left 0.4s ease-in-out;
+}
+
+button:hover:before {
+    left: 0;
+}
+
+/* Buy Coffee button */
+.buy-coffee {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #f39c12;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background-color: #2c3e50;
+    border: 2px solid #f39c12;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.buy-coffee:hover {
+    color: white;
+    background-color: #f39c12;
+    box-shadow: 0 0 10px #f39c12;
+    transform: translateY(-2px);
+}
+
+/* Make it responsive */
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+}
