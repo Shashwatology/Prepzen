@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Courses</title>
+    <link rel="stylesheet" href="courses.css">
+</head>
+    <body>
+        <div class="section-wrapper">
+             
+            <h2 style="color: Yellow;">Select your course and branch to get started:</h2>
+            <div class="buttons">
+                <button onclick="redirectTo('btech.html')">Start Learning: BTech</button>
+                <button onclick="redirectTo('bvoc.html')">Start Learning: BVoc</button>
+            </div>
+            <a class="buy-coffee" href="https://www.buymeacoffee.com/YourProfile" target="_blank">Buy Us a Coffee ☕</a>
+        
+        </div>
+
+        <script>
+            function redirectTo(url) {
+                window.location.href = url;
+            }
+        </script>
+    </body>
+
+</html>
