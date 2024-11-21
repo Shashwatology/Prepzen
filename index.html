@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrepZen </title>
+    <title>PrepZen</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- Navbar --> 
+     <!-- change the three dot  -->
     <nav class="navbar">
         <div class="logo">
             <h1>PrepZen</h1>
         </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776;
+        </div>
         <ul class="nav-links">
             <li><a href="courses.html">Courses</a></li>
             <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="contributors.html">Contributors</a></li>
-            <li><a href="documents.html">Documents</a></li>
-            <li><a href="roadmaps.html">Roadmaps</a></li>
+            <li><a href="contributor.html">Contributors</a></li>
+            <li><a href="document.html">Documents</a></li>
+            <li><a href="https://roadmap.sh/">Roadmaps</a></li>
         </ul>
     </nav>
     
@@ -25,19 +29,20 @@
     <!-- Hero Section -->
     <header class="hero-section">
         <div class="typing-effect">
-            <span>PrepZen</span>
+            <span>PrepZen</span> <br>
+            <span style="color:aqua">Learn from here</span>
         </div>
         <div class="subtitle">
-            <p>Elevate your academic journey with our website!</p>
-            <p>Find notes, past question papers, and essential tools to excel academically.</p>
+            <p>Elevate your Academic journey with our website!</p>
+            <p>Find notes, Past year Question papers, and essential tools to excel academically.</p>
             <p>Join thousands of students who trust us as their go-to resource hub.</p>
             <p><strong>Take the next step towards success today!</strong></p>
         </div>
 
 
         <div class="section-wrapper">
-            
-            <p>Select your course and branch to get started:</p>
+             
+            <h2>Select your course and branch to get started:</h2>
             <div class="buttons">
                 <button onclick="redirectTo('btech.html')">Start Learning: BTech</button>
                 <button onclick="redirectTo('bvoc.html')">Start Learning: BVoc</button>
@@ -46,11 +51,20 @@
         
         </div>
         
+        <!-- color palate bar  -->
+        <div class="content">
+            <h2>Welcome to PrepZen!</h2>
+            <p>Customize the look and enjoy your personalized study experience.</p>
+            <div class="color-palette">
+                <button class="color-btn" data-color="#38b2ac"></button>
+                <button class="color-btn" data-color="#4299e1"></button>
+                <button class="color-btn" data-color="#805ad5"></button>
+                <button class="color-btn" data-color="#f6ad55"></button>
+                <button class="color-btn" data-color="#e53e3e"></button>
+            </div>
+        </div>
 
-
-
-       
-    
+        
     </header>
 
     <!-- Footer -->
@@ -66,9 +80,28 @@
     </footer>
     
     <script>
+//  humber togle three line added 
+        function toggleMenu() {
+         const navMenu = document.getElementById('nav-menu');
+        navMenu.classList.toggle('show');
+        }   
+
+
         function redirectTo(page) {
             window.location.href = page;
         }
+
+        // Color palat script
+        const buttons = document.querySelectorAll('.color-btn');
+        buttons.forEach(button => {
+        button.addEventListener('click', () => {
+        const color = button.getAttribute('data-color');
+        document.body.style.background = color;
+  });
+});
+
     </script>
+
 </body>
 </html>
+

@@ -17,6 +17,34 @@
       align-items: center;
     }
 
+
+    /* Adding a golden radial gradient with animation */
+body:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(255, 223, 0, 0.4), transparent 60%);
+    transform: translate(-50%, -50%) scale(1);
+    animation: golden-glow 5s infinite alternate ease-in-out;
+    pointer-events: none; /* Makes sure it's non-interactive */
+    z-index: -1;
+}
+
+/* Animation for the glow effect */
+@keyframes golden-glow {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+}
+
     h1, h2 {
       color: yellow;
       margin-top: 20px;
@@ -96,13 +124,13 @@
     .social-icons {
       display: flex;
       justify-content: center;
-      gap: 15px;
+      gap: 0px;
       margin-top: 10px;
     }
 
     .social-icons img {
-      width: 1020px;
-      height: 94px;
+      width: 90px;
+      height: 86px;
       transition: transform 0.1s ease;
     }
 
@@ -135,6 +163,7 @@
     .next-contributor:hover .circle-placeholder {
       background: #f0e130;
       transform: scale(1.1);
+      color: black;
     }
 
     .next-contributor .btn {
@@ -145,32 +174,33 @@
       text-decoration: none;
       border-radius: 20px;
       font-weight: bold;
-      transition: background 0.3s ease, color 0.3s ease;
+      transition: 0.3s ease, color 0.3s ease;
     }
 
     .next-contributor .btn:hover {
       background: yellow;
       color: black;
     }
+
   </style>
 </head>
 <body>
   <h1>Our Team</h1>
 
   <!-- Project Lead Section -->
-  <div class="section">
+  <div class="section" style="align-items:center ;">
     <h2>Project Lead</h2>
     <div class="card lead-card">
       <div class="circle-image">
         <img src="shashwat.jpeg" alt="Shashwat's Photo">
       </div>
-      <div class="content">
+      <div class="content" style="align-content: center;" >
         <h3>Shashwat Upadhyay</h3>
         <p>Shashwat is the project lead who oversees the entire project, ensuring progress and quality. With a keen eye for detail, Shashwat drives the vision of this initiative.</p>
         <div class="social-icons">
-          <img src="linkedin.png" alt="LinkedIn">
-          <img src="github.png" alt="GitHub">
-          <img src="instagram.png" alt="Instagram">
+          <a href="https://www.linkedin.com/in/shashwat-upadhyay-13abb020b/"><img src="linkedin.png" alt="LinkedIn"></a>
+          <a href="https://www.github.com/shashwatology/"><img src="github.png" alt="GitHub"></a>
+          <a href="https://www.instagram.com/_shashwatology/"><img src="instagram.png" alt="Instagram"></a>
         </div>
       </div>
     </div>
@@ -180,6 +210,7 @@
   <div class="section">
     <h2>Contributors</h2>
     <div class="card-container">
+      
       <!-- Ritesh's Card -->
       <div class="card">
         <div class="circle-image">
@@ -187,23 +218,34 @@
         </div>
         <div class="content">
           <h3>Ritesh Sah</h3>
-          <p><h6>Student at IITM</h6>
+          <p><h>Student at IITM</h6>
             A contributor passionate about development and innovation. Ritesh is instrumental in turning ideas into reality. </p>
           <div class="social-icons">
-            <img src="linkedin.png" alt="LinkedIn" >
-            <img src="github.png" alt="GitHub">
-            <img src="instagram.png" alt="Instagram">
+            <a href="https://www.linkedin.com/in/ritesh-sah-0901a62a1/"><img src="linkedin.png" alt="LinkedIn" ></a>
+            <a href="https://github.com/riteshsah235"></a><img src="github.png" alt="GitHub">
+            <a href="https://www.instagram.com/ritesh_kanti/?__pwa=1"><img src="instagram.png" alt="Instagram"></a>
           </div>
         </div>
       </div>
 
       <!-- Be the Next Contributor Card -->
       <div class="card next-contributor">
-        <div class="circle-placeholder">You</div>
+        <div  class="circle-placeholder"><img style="width: 4cm; height: 2cm;" src="You.png" alt="You"></div>
         <h3>Be the Next Contributor</h3>
         <a href="https://forms.gle/qiQwsyhdDSGup4v19" class="btn">Join Now</a>
       </div>
     </div>
   </div>
+
+  <!-- footer Team PrepZen
+  <footer 
+  style=" 
+  position: absolute;
+  bottom: 20px;
+  color: #b1a6a6;
+  font-size: 0.8rem;
+  ">
+  Made with Love -  <a href="contact.html" style="color: #ffdf00;"> Team PrepZen</a>
+</footer> -->
 </body>
 </html>

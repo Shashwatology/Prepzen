@@ -1,8 +1,9 @@
+
 /* styles.css */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #000;
+    background: linear-gradient(90deg, #192d49, #0f0f04, #5c5607)#000;
 }
 
 /* Navbar */
@@ -70,6 +71,65 @@ body {
     transform: scale(1.1); /* Slight bounce back */
 }
 
+/* Hamburger Menu Styles */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    cursor: pointer;
+    z-index: 10;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+/* Animations for Hamburger Menu */
+.hamburger.active div:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 250px;
+        background-color: #333;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-links.active {
+        transform: translateX(-100%);
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+        text-align: center;
+    }
+}
+
 /* Mobile Responsive Design */
 @media screen and (max-width: 768px) {
     .navbar {
@@ -113,7 +173,7 @@ body {
         width: 1;
     }
     to {
-        width: 7.5ch; /* Adjusted to fit "PrepZen" */
+        width: 16ch; /* Adjusted to fit "PrepZen" */
     }
 }
 
@@ -419,3 +479,56 @@ button:after {
         box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
     }
 }
+
+/* Color palate css  */
+.color-palette {
+    display: flex;
+    gap: 10px;
+    margin: 20px;
+  }
+  
+  .color-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .color-btn:nth-child(1) { background-color: linear-gradient(135deg, #ff9a9e, #fad0c4); }
+  .color-btn:nth-child(2) { background-color: linear-gradient(135deg, #36d1dc, #5b86e5); }
+  .color-btn:nth-child(3) { background-color: linear-gradient(135deg, #6a11cb, #2575fc); }
+  .color-btn:nth-child(4) { background-color: linear-gradient(135deg, #56ab2f, #a8e063); }
+  .color-btn:nth-child(5) { background-color: linear-gradient(135deg, #36d1dc, #5b86e5); }
+  
+
+  .content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px yellow ;
+    margin: 20px auto;
+    max-width: 800px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: yellow;
+    animation: glow 3s infinite alternate;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)); /* Dark background */
+  }
+
+  @keyframes glow {
+    0% {
+        border-color: black;
+        box-shadow: 0 0 10px yellow;
+    }
+    100% {
+        border-color: aqua;
+        box-shadow: 0 0 30px yellow;
+    }
+}
+  
+  
+  
+  
+ 
