@@ -1,0 +1,370 @@
+
+/* styles.css
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(90deg, #192d49, #0f0f04, #5c5607)#000;
+}
+
+/* Navbar */
+/* Base Navbar Styling */
+.navbar {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #1f1f1f, #333, #1f1f1f); /* Cool gradient */
+    padding: 0.8rem 2rem;
+    color: #fff;
+    box-shadow: 0px 6px 15px 4px rgb(83, 71, 20); /* Yellow glow at the bottom */
+    border-bottom: 5px solid #e2c82f; /* Wide border */
+    z-index: 7000;
+}
+
+/* Logo Styling */
+.logo h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+    color: #bab59a;
+    text-shadow: 2px 2px 4px #000;
+}
+
+/* Navigation Links Styling */
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #e2c82f;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: 2px solid #685d1e; /* Border for buttons */
+    border-radius: 15px;
+    background: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Pop-up Animation on Hover */
+.nav-links a:hover {
+    background: linear-gradient(45deg, #e2c82f, #f4e04d); /* Gradient fill */
+    color: #000;
+    box-shadow: 0px 8px 15px rgba(226, 200, 47, 0.5); /* Pop-up shadow */
+    transform: scale(1.2); /* Zoom effect */
+    border-radius: 25px; /* Rounder border */
+    transition: all 0.5s ease-in-out;
+}
+
+/* 
+/* Button Inner Glow Effect */
+.nav-links a:active {
+    box-shadow: 0px 0px 20px 4px rgba(226, 200, 47, 0.8); /* Inner glow */
+    transform: scale(1.1); /* Slight bounce back */
+}
+
+/* Hamburger Menu Styles */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    cursor: pointer;
+    z-index: 10;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+/* Animations for Hamburger Menu */
+.hamburger.active div:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 250px;
+        background-color: #333;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-links.active {
+        transform: translateX(-100%);
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+        text-align: center;
+    }
+}
+
+/* Mobile Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+    .nav-links li {
+        margin: 1rem 0;
+    }
+}
+
+/* button section  */
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    gap: 2rem; /* Adds space between buttons */
+}
+
+button {
+    position: relative;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #1abc9c, #3498db);
+    border: 3px solid transparent; /* For animation */
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px 5px rgba(0, 255, 255, 0.5), 0 0 10px 5px rgba(0, 255, 150, 0.4);
+}
+
+button:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+    z-index: -1;
+    transition: left 0.4s ease-in-out;
+}
+
+button:hover:before {
+    left: 0;
+}
+
+button:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 4px solid rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+    z-index: -2;
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1.1);
+        opacity: 0.6;
+    }
+}
+
+
+/* hero section  */
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Vertically centers content */
+    min-height: 80vh; /* Takes up full viewport height minus navbar */
+    text-align: center;
+    color: yellow;
+}
+
+/* Typing Effect */
+.typing-effect {
+    font-size: 3rem;
+    font-weight: bold;
+    color: yellow;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid yellow;
+    animation: typing 4s steps(40, end) forwards, blink 0.6s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 1;
+    }
+    to {
+        width: 16ch; /* Adjusted to fit "PrepZen" */
+    }
+}
+
+@keyframes blink {
+    from {
+        border-color: rgb(13, 197, 226);
+    }
+    to {
+        border-color: transparent;
+    }
+}
+
+
+@keyframes blink {
+    from {
+        border-color: rgb(28, 36, 1);
+    }
+    to {
+        border-color: transparent;
+    }
+}
+
+.subtitle p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+
+/* footer section  */
+/* Footer */
+
+/* Footer container */
+footer {
+    background: linear-gradient(135deg, #121a19, #1d2a25); /* Gradient background */
+    color: #ce7676;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem; /* Reduced padding for smaller size */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 10;
+}
+
+/* Styling for footer sections */
+.footer-section {
+    flex: 1;
+    padding: 0.5rem; /* Reduced padding */
+    text-align: center;
+    color: yellow;
+    font-size: 0.85rem; /* Smaller font size */
+    font-family: 'Roboto', sans-serif; /* A clean, modern font */
+    transition: all 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Hover effects for footer sections */
+.footer-section:hover {
+    text-decoration: underline;
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    color: #30b2bd; /* Change text color to white on hover */
+}
+
+/* Footer section links or icons */
+.footer-links a {
+    color: #ce7676;
+    text-decoration: none;
+    margin: 0 8px; /* Reduced margin */
+    font-size: 1rem; /* Smaller font size */
+    transition: all 0.3s ease;
+}
+
+/* Hover effects for links */
+.footer-links a:hover {
+    color: #ffcc00; /* Gold color on hover */
+    transform: scale(1.2); /* Slightly enlarge on hover */
+}
+
+/* Social media icons */
+.footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Reduced gap between icons */
+    font-size: 1.3rem; /* Slightly smaller font size for icons */
+}
+
+/* Add background animation effect */
+@keyframes footerAnimation {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Apply the animation to footer */
+footer {
+    animation: footerAnimation 3s ease-out;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .footer-section {
+        padding: 0.5rem;
+        font-size: 0.8rem; /* Further decrease font size for mobile */
+    }
+
+    .footer-icons {
+        flex-direction: column;
+        gap: 10px; /* Reduced gap between icons */
+    }
+}
+
+
+/* Footer Section Ends Here  */
+
+.image img {
+    width: 400px;
+    height: auto;
+  } */

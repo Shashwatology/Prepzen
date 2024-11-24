@@ -173,7 +173,7 @@ body {
         width: 1;
     }
     to {
-        width: 16ch; /* Adjusted to fit "PrepZen" */
+        width: 9ch; /* Adjusted to fit "PrepZen" */
     }
 }
 
@@ -497,12 +497,12 @@ button:after {
   }
   
   .color-btn:nth-child(1) { background-color: linear-gradient(135deg, #ff9a9e, #fad0c4); }
-  .color-btn:nth-child(2) { background-color: linear-gradient(135deg, #36d1dc, #5b86e5); }
-  .color-btn:nth-child(3) { background-color: linear-gradient(135deg, #6a11cb, #2575fc); }
-  .color-btn:nth-child(4) { background-color: linear-gradient(135deg, #56ab2f, #a8e063); }
+  .color-btn:nth-child(2) { background-color: linear-gradient(135deg, #000000, #a2a7b4); }
+  .color-btn:nth-child(3) { background-color: linear-gradient(135deg, #26113b, #460a23); }
+  .color-btn:nth-child(4) { background-color: linear-gradient(135deg, #ac6810, #a8e063); }
   .color-btn:nth-child(5) { background-color: linear-gradient(135deg, #36d1dc, #5b86e5); }
   
-
+/* 
   .content {
     background-color: #ffffff;
     padding: 20px;
@@ -515,7 +515,7 @@ button:after {
     color: yellow;
     animation: glow 3s infinite alternate;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)); /* Dark background */
-  }
+  
 
   @keyframes glow {
     0% {
@@ -531,4 +531,56 @@ button:after {
   
   
   
- 
+/* // added css  */
+
+.main-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+.content {
+    max-width: 50%;
+}
+.content h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin: 0;
+}
+.content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 20px 0;
+}
+.content .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #000;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.content .btn:hover {
+    background-color: #e6b800;
+}
+.image-container {
+    max-width: 45%;
+}
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #1a1a1a;
+    color: #ffcc00;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+

@@ -7,6 +7,14 @@
   <link rel="stylesheet" href="coursepagebtech.css">
 </head>
 <body>
+
+
+<!-- Search Bar -->
+<div class="search-container">
+  <input type="text" id="searchInput" placeholder="Search by Program, Course, Semester, or Contributor...">
+</div>
+
+
   <div class="torchlight">
     <header>
       <h1 style="color: #ffdf00; text-align: center;"  >PrepZen Content Hub</h1>
@@ -118,4 +126,30 @@
     </footer>
   </div>
 </body>
+
+
+<script>const searchInput = document.getElementById('searchInput');
+  const table = document.getElementById('contentTable');
+  const rows = table.getElementsByTagName('tr');
+  
+  searchInput.addEventListener('keyup', () => {
+    const filter = searchInput.value.toLowerCase();
+  
+    for (let i = 1; i < rows.length; i++) { // Skip the header row
+      const row = rows[i];
+      const cells = row.getElementsByTagName('td');
+      let rowMatches = false;
+  
+      for (let j = 0; j < cells.length; j++) {
+        const cell = cells[j];
+        if (cell.textContent.toLowerCase().includes(filter)) {
+          rowMatches = true;
+          break;
+        }
+      }
+  
+      row.style.display = rowMatches ? '' : 'none';
+    }
+  });
+  </script>
 </html>

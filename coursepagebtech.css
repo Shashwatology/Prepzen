@@ -16,6 +16,24 @@ body {
     text-shadow: 0 0 20px yellow;
   }
   
+
+  .search-container {
+    margin: 20px;
+    text-align: center;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+
+
+
+
+
   p {
     text-align: center;
     font-size: 1.2rem;
