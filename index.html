@@ -1,126 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PrepZen</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href= "favicon.png">
-
+    <link rel="icon" type="image/x-icon" href="favicon.png">
 </head>
+
 <body>
-    <!-- Navbar --> 
-     <!-- change the three dot  -->
+    <!-- Navbar -->
     <nav class="navbar">
-        <div class="logo">
-            <h1>PrepZen</h1>
-        </div>
-        <div class="hamburger" onclick="toggleMenu()">
-            &#9776;
-        </div>
-        <ul class="nav-links">
-            <li><a href="courses.html">Courses</a></li>
-            <li><a href="document.html">Documents</a></li>
-            <li><a href="https://roadmap.sh/">Roadmaps</a></li>
-            <li><a href="contributor.html">Contributors</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-    </nav>
-    
-    <!-- Hero Section -->
-    <!-- <header class="hero-section">
-        <div class="typing-effect">
-            <span>PrepZen</span> <br>
-            <span style="color:aqua" 
-            >Learn |Explore| Connect </span>
-        </div> -->
-        <!-- <div class="subtitle">
-            <p>Elevate your Academic journey with our website!</p>
-            <p>Find notes, Past year Question papers, and essential tools to excel academically.</p>
-            <p>Join thousands of students who trust us as their go-to resource hub.</p>
-            <p><strong>Take the next step towards success today!</strong></p>
-        </div>
-
-
-        <div class="section-wrapper">
-             
-            <h2>Select your course and branch to get started:</h2>
-            <div class="buttons">
-                <button onclick="redirectTo('btech.html')">Start Learning: BTech</button>
-                <button onclick="redirectTo('bvoc.html')">Start Learning: BVoc</button>
+        <div class="container">
+            <div class="logo">
+                <h1>PrepZen</h1>
             </div>
-            <a class="buy-coffee" href="https://www.buymeacoffee.com/YourProfile" target="_blank">Buy Us a Coffee ☕</a>
-        
-        </div> -->
-        
-        
-    <div class="main-section">
-        <div class="content">
-            <h1 style="color: antiquewhite;">Stop <br> Searching, <br> Start <br> </h1>
-                <div class="typing-effect"><span style="color: #ffcc00;">Studying!!</span></div>
-            <p>Boost your academic journey with our website.<br>
-               Access notes, past papers, & essential tools for success!</p>
-            <a href="courses.html" class="btn" >Start Learning</a>
+            <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="document.html">Documents</a></li>
+                <li><a href="https://roadmap.sh/" target="_blank">Roadmaps</a></li>
+                <li><a href="contributor.html">Contributors</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
         </div>
-        <div class="image-container">
-            <img src="student.png" alt="Student Illustration">
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="content">
+                <h1>Stop Searching, <br>
+                    Start <span id="dynamic-text" class="highlight"></span></h1>
+                <p>Elevate your academic journey with PrepZen. <br>
+                   Access curated notes, past papers, and essential tools for success.</p>
+                <a href="courses.html" class="btn">Get Started</a>
+            </div>
+            <div class="image-container">
+                <img src="student.png" alt="Student Illustration">
+            </div>
         </div>
+    </section>
+
+    <!-- Mode Toggle -->
+    <div class="mode-toggle">
+        <button id="mode-button">Switch Theme </button>
     </div>
 
-    <!-- <div class="footer">
-        <p>© PrepZen 2024 | <a href="#">About Us</a> | <a href="#">Contact Us</a> | <a href="#">Contribute Us</a></p>
-    </div> -->
-
-        <!-- color palate bar  -->
-        <!-- <div class="content">
-            <p>Customize the look and enjoy your personalized study experience.</p>
-            <div class="color-palette">
-                <button class="color-btn" data-color="#38b2ac"></button>
-                <button class="color-btn" data-color="#4299e1"></button>
-                <button class="color-btn" data-color="#805ad5"></button>
-                <button class="color-btn" data-color="#f6ad55"></button>
-                <button class="color-btn" data-color="#e53e3e"></button>
-            </div>
-        </div> -->
-
-        
-    </header>
-
     <!-- Footer -->
-    <footer style="align-self: baseline; align-items: end; position: fixed; padding-bottom: 0cm;">
-        <div class="footer-section copyright-section">
-            <p>&copy; PrepZen 2024</p>
-        </div>
-        <div class="footer-section about-section">
-            <a href="about.html">About Us</a> | 
-            <a href="contact.html">Contact Us</a> | 
-            <a href="contributor.html">Contribute Us </a>
+    <footer>
+        <div class="container footer-container">
+            <p>&copy; 2024 PrepZen</p>
+            <div class="footer-links">
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="contributor.html">Contribute</a>
+            </div>
         </div>
     </footer>
-    
+
+    <!-- Scripts -->
     <script>
-//  humber togle three line added 
+        // Navbar Toggle
         function toggleMenu() {
-         const navMenu = document.getElementById('nav-menu');
-        navMenu.classList.toggle('show');
-        }   
-
-
-        function redirectTo(page) {
-            window.location.href = page;
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('show');
         }
 
-        // Color palat script
-        const buttons = document.querySelectorAll('.color-btn');
-        buttons.forEach(button => {
-        button.addEventListener('click', () => {
-        const color = button.getAttribute('data-color');
-        document.body.style.background = color;
-  });
-});
+        // Dynamic Typing Effect
+        const words = ["Studying!", "Exploring!", "Connecting!", "Developing!"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        const dynamicText = document.getElementById('dynamic-text');
 
+        function typeEffect() {
+            if (charIndex < words[wordIndex].length) {
+                dynamicText.textContent += words[wordIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeEffect, 100);
+            } else {
+                setTimeout(eraseEffect, 1000);
+            }
+        }
+
+        function eraseEffect() {
+            if (charIndex > 0) {
+                dynamicText.textContent = words[wordIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(eraseEffect, 100);
+            } else {
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(typeEffect, 500);
+            }
+        }
+
+        typeEffect();
+
+        // Mode Toggle
+        const modeButton = document.getElementById('mode-button');
+        let mode = "light";
+
+        modeButton.addEventListener("click", () => {
+            const body = document.body;
+            if (mode === "light") {
+                body.classList.remove("light-mode");
+                body.classList.add("dark-mode");
+                mode = "dark";
+            } else if (mode === "dark") {
+                body.classList.remove("dark-mode");
+                body.classList.add("gradient-mode");
+                mode = "gradient";
+            } else {
+                body.classList.remove("gradient-mode");
+                body.classList.add("light-mode");
+                mode = "light";
+            }
+        });
     </script>
-
 </body>
-</html>
 
+</html>
