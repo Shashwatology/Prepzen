@@ -1,96 +1,273 @@
-/* General Styles */
 body {
     font-family: Arial, sans-serif;
+    background: black;
+    color: yellow;
     margin: 0;
     padding: 0;
-    background-color: #020201; /* Light beige */
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+  }
+
+/* Mode Toggle */
+.mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 }
 
-h1, h2 {
-    color: #b58900; /* Yellow-golden */
-    margin: 1rem 0;
-}
-
-.contributor-page {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-/* Card Styles */
-.card {
-    background-color: #d3d3b3; /* Light muted green */
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    margin: 1rem;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+#mode-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ffcc00;
+    color: #b78726;
     cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+#mode-button:hover {
+    background-color: #ffd633;
+}
+/* Light Mode */
+body.light-mode {
+    background-color: #f8f9fa;
+    color: #333;
 }
 
-/* Photo Placeholder */
-.photo {
-    width: 100px;
-    height: 100px;
-    background-color: #f1c40f; /* Yellow */
+/* Dark Mode */
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+/* Gradient Mode */
+body.gradient-mode {
+    background: 
+        linear-gradient(180deg, rgba(50, 105, 184, 0.01), rgb(194, 182, 15) 85%),
+        radial-gradient(ellipse at top left, rgba(234, 154, 34, 0.5), transparent 50%), /* Replace with your primary color */
+        radial-gradient(ellipse at top right, rgba(61, 119, 160, 0.5), transparent 50%), /* Replace with your accent color */
+        radial-gradient(ellipse at center right, rgba(140, 205, 36, 0.5), transparent 50%), /* Replace with your violet color */
+        radial-gradient(ellipse at center left, rgba(177, 60, 231, 0.937), transparent 50%); /* Replace with your pink color */
+    
+    color: rgb(10, 2, 73);
+}
+
+  /* Adding a golden radial gradient with animation */
+  body:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(255, 223, 0, 0.4), transparent 60%);
+    transform: translate(-50%, -50%) scale(1);
+    animation: golden-glow 5s infinite alternate ease-in-out;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Animation for the glow effect */
+  @keyframes golden-glow {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.7;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1.2);
+      opacity: 1;
+    }
+  }
+
+  h1, h2 {
+    color: yellow;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .section {
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  /* Project Lead Section */
+  .lead-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+  }
+
+  .lead-card {
+    width: 300px;
+    background: yellow;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    cursor: pointer;
+    color: black;
+  }
+
+  .lead-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    background-color: #333; /* Dark hover effect */
+    color: yellow;
+  }
+
+  .lead-card .circle-image {
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     margin: 0 auto;
-}
+    position: relative;
+    overflow: hidden;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  }
 
-/* Social Icons */
-.social-icons {
-    margin-top: 1rem;
+  .lead-card .circle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .lead-card .content {
+    margin-top: 20px;
+  }
+
+  .lead-card .content h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  .lead-card .content p {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+
+  .lead-card .social-icons {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-}
+    gap: 5px;
+    margin-top: 15px;
+  }
 
-.social-icons a {
-    text-decoration: none;
-    color: #2c3e50; /* Dark blue-gray */
+  .lead-card .social-icons img {
+    width: 80px;
+    height: 70px;
+    transition: transform 0.2s ease;
+  }
+
+  .lead-card .social-icons img:hover {
+    transform: scale(1.2);
+  }
+
+  /* Card Container */
+  .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  /* Individual Cards */
+  .card {
+    width: 240px;
+    background: yellow;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    cursor: pointer;
+    color: black;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    background-color: #333; /* Dark hover effect */
+    color: yellow;
+  }
+
+  .circle-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .circle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .content h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+
+  .social-icons img {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.2s ease;
+  }
+
+  .social-icons img:hover {
+    transform: scale(1.2);
+  }
+
+  /* "Be the Next Contributor" Card */
+  .next-contributor {
+    background: black;
+    color: yellow;
+    text-align: center;
+  }
+
+  .next-contributor .circle-placeholder {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: yellow;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
     font-weight: bold;
-    padding: 0.5rem;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
 
-.social-icons a.linkedin:hover {
-    background-color: #0077b5;
-    color: #fff;
-}
+  .next-contributor:hover .circle-placeholder {
+    background: #f0e130;
+    transform: scale(1.1);
+    color: black;
+  }
 
-.social-icons a.github:hover {
-    background-color: #333;
-    color: #fff;
-}
+  .next-contributor .btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: yellow;
+    color: black;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: 0.3s ease, color 0.3s ease;
+  }
 
-.social-icons a.instagram:hover {
-    background-color: #c13584;
-    color: #fff;
-}
-
-/* Layout */
-.lead-card {
-    margin-bottom: 2rem;
-}
-
-.contributors {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.be-next .card {
-    background-color: #ffeaa7; /* Light yellow for emphasis */
-    margin-top: 2rem;
-}
+  .next-contributor .btn:hover {
+    background: yellow;
+    color: black;
+  }

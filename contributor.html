@@ -4,197 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contributor Page</title>
-  <style>
-    /* Body Styles */
-    body {
-      font-family: Arial, sans-serif;
-      background: black;
-      color: yellow;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-
-    /* Adding a golden radial gradient with animation */
-body:before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 150%;
-    height: 150%;
-    background: radial-gradient(circle, rgba(255, 223, 0, 0.4), transparent 60%);
-    transform: translate(-50%, -50%) scale(1);
-    animation: golden-glow 5s infinite alternate ease-in-out;
-    pointer-events: none; /* Makes sure it's non-interactive */
-    z-index: -1;
-}
-
-/* Animation for the glow effect */
-@keyframes golden-glow {
-    0% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.7;
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(1.2);
-        opacity: 1;
-    }
-}
-
-    h1, h2 {
-      color: yellow;
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    .section {
-      width: 90%;
-      max-width: 1200px;
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    /* Card Container */
-    .card-container {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    /* Individual Cards */
-    .card {
-      width: 240px;
-      background: yellow;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-      overflow: hidden;
-      cursor: pointer;
-      color: black;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-      background-color: #333; /* Dark hover effect */
-      color: yellow;
-    }
-
-    /* Circle Image */
-    .circle-image {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .circle-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Content Inside Card */
-    .content {
-      margin-top: 15px;
-    }
-
-    .content h3 {
-      font-size: 1.2em;
-      margin-bottom: 10px;
-    }
-
-    .content p {
-      font-size: 0.9em;
-      color: black;
-    }
-
-    /* Social Icons */
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 0px;
-      margin-top: 10px;
-    }
-
-    .social-icons img {
-      width: 90px;
-      height: 86px;
-      transition: transform 0.1s ease;
-    }
-
-    .social-icons img:hover {
-      transform: scale(1.2);
-    }
-
-    /* "Be the Next Contributor" Card */
-    .next-contributor {
-      background: black;
-      color: yellow;
-      text-align: center;
-    }
-
-    .next-contributor .circle-placeholder {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: yellow;
-      margin: 20px auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.5em;
-      font-weight: bold;
-      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-
-    .next-contributor:hover .circle-placeholder {
-      background: #f0e130;
-      transform: scale(1.1);
-      color: black;
-    }
-
-    .next-contributor .btn {
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: yellow;
-      color: black;
-      text-decoration: none;
-      border-radius: 20px;
-      font-weight: bold;
-      transition: 0.3s ease, color 0.3s ease;
-    }
-
-    .next-contributor .btn:hover {
-      background: yellow;
-      color: black;
-    }
-
-  </style>
+  <link rel="stylesheet" href="contributor.css">
 </head>
 <body>
   <h1>Our Team</h1>
 
   <!-- Project Lead Section -->
-  <div class="section" >
-    <h2>Project Lead</h2>
-    <div class="card lead-card">
+  <div class="section lead-section">
+    <div class="lead-card">
       <div class="circle-image">
         <img src="shashwat.jpeg" alt="Shashwat's Photo">
       </div>
-      <div class="content" >
+      <div class="content">
         <h3>Shashwat Upadhyay</h3>
         <p>Shashwat is the project lead who oversees the entire project, ensuring progress and quality. With a keen eye for detail, Shashwat drives the vision of this initiative.</p>
         <div class="social-icons">
@@ -210,7 +31,6 @@ body:before {
   <div class="section">
     <h2>Contributors</h2>
     <div class="card-container">
-      
       <!-- Ritesh's Card -->
       <div class="card">
         <div class="circle-image">
@@ -218,11 +38,10 @@ body:before {
         </div>
         <div class="content">
           <h3>Ritesh Sah</h3>
-          <p><h>Student at IITM</h6>
-            A contributor passionate about development and innovation. Ritesh is instrumental in turning ideas into reality. </p>
+          <p>Student at IITM, Ritesh is a contributor passionate about development and innovation. He is instrumental in turning ideas into reality.</p>
           <div class="social-icons">
-            <a href="https://www.linkedin.com/in/ritesh-sah-0901a62a1/"><img src="linkedin.png" alt="LinkedIn" ></a>
-            <a href="https://github.com/riteshsah235"></a><img src="github.png" alt="GitHub">
+            <a href="https://www.linkedin.com/in/ritesh-sah-0901a62a1/"><img src="linkedin.png" alt="LinkedIn"></a>
+            <a href="https://github.com/riteshsah235"><img src="github.png" alt="GitHub"></a>
             <a href="https://www.instagram.com/ritesh_kanti/?__pwa=1"><img src="instagram.png" alt="Instagram"></a>
           </div>
         </div>
@@ -230,22 +49,41 @@ body:before {
 
       <!-- Be the Next Contributor Card -->
       <div class="card next-contributor">
-        <div  class="circle-placeholder"><img style="width: 4cm; height: 2cm;" src="You.png" alt="You"></div>
+        <div class="circle-placeholder">
+          <img style="width: 4cm; height: 2cm;" src="You.png" alt="You">
+        </div>
         <h3>Be the Next Contributor</h3>
         <a href="https://forms.gle/qiQwsyhdDSGup4v19" class="btn">Join Now</a>
       </div>
     </div>
   </div>
+  
+    <!-- Mode Toggle -->
+    <div class="mode-toggle">
+      <button id="mode-button">Switch Theme </button>
+  </div>
 
-  <!-- footer Team PrepZen
-  <footer 
-  style=" 
-  position: absolute;
-  bottom: 20px;
-  color: #b1a6a6;
-  font-size: 0.8rem;
-  ">
-  Made with Love -  <a href="contact.html" style="color: #ffdf00;"> Team PrepZen</a>
-</footer> -->
+  <script>
+    // Mode Toggle
+    const modeButton = document.getElementById('mode-button');
+        let mode = "light";
+
+        modeButton.addEventListener("click", () => {
+            const body = document.body;
+            if (mode === "light") {
+                body.classList.remove("light-mode");
+                body.classList.add("dark-mode");
+                mode = "dark";
+            } else if (mode === "dark") {
+                body.classList.remove("dark-mode");
+                body.classList.add("gradient-mode");
+                mode = "gradient";
+            } else {
+                body.classList.remove("gradient-mode");
+                body.classList.add("light-mode");
+                mode = "light";
+            }
+        });
+  </script>
 </body>
 </html>
