@@ -52,7 +52,7 @@ body.gradient-mode {
     
     color: rgb(10, 2, 73);
 }
-}
+
 
 /* Navbar */
 /* Navbar */
@@ -84,6 +84,7 @@ body.gradient-mode {
     display: flex;
     margin: 0;
     padding: 0;
+    white-space: nowrap;
 }
 
 .nav-links li {
@@ -295,4 +296,29 @@ footer p {
     .hero-section .image-container img {
         margin: 20px 0;
     }
+}
+
+/* Disclaimer Section */
+
+.disclaimer {
+    background: #fef5da; /* Light beige background */
+    color: #5a5a5a; /* Neutral text color */
+    border: 1px solid #a58f57; /* Soft border color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 15px; /* Curvy corners */
+    padding: 20px;
+    margin: 20px auto; /* Centering the box */
+    max-width: 800px; /* Restricting width for better readability */
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.disclaimer p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.disclaimer strong {
+    color: #d09d0d; /* Highlighted color for "Disclaimer" */
+    font-weight: bold;
 }
