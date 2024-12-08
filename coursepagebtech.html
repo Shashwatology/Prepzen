@@ -3,153 +3,117 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PrepZen Content</title>
+  <title>PrepZen Content Hub</title>
   <link rel="stylesheet" href="coursepagebtech.css">
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        rel="stylesheet"> -->
+
 </head>
 <body>
 
+  <h1>PrepZen Content Hub</h1>
+  <input type="text" id="searchBar" placeholder="Search by subject, semester, or other criteria..." onkeyup="filterTable()">
 
-<!-- Search Bar -->
-<div class="search-container">
-  <input type="text" id="searchInput" placeholder="Search by Program, Course, Semester, or Contributor...">
-</div>
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th>SR No</th>
+        <th>Program</th>
+        <th>Course</th>
+        <th>Semester</th>
+        <th>Notes</th>
+        <th>Question Bank</th>
+        <th>Short Notes</th>
+        <th>Sample Paper</th>
+        <th>Contributor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Data will be inserted here dynamically -->
+    </tbody>
+  </table>
 
-
-  <div class="torchlight">
-    <header>
-      <h1 style="color: #ffdf00; text-align: center;"  >PrepZen Content Hub</h1>
-      <p>Your one-stop solution for streamlined learning resources!</p>
-    </header>
-    <div class="table-container">
-      <table>
-        <thead>
-          <tr>
-            <th>SR No</th>
-            <th>Program</th>
-            <th>Course</th>
-            <th>Sem</th>
-            <th>Notes</th>
-            <th>Question Bank</th>
-            <th>Short Notes</th>
-            <th>Sample Paper</th>
-            <th>Contributor</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Rows will be dynamically added --> 
-          <tr>
-            <td>1</td>
-            <td>BTech</td>
-            <td>Applied Chemistry</td>
-            <td>Sem1</td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="https://bento.me/shashwatupadhyay">Shashwat Upadhyay</a></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>BTech</td>
-            <td>Matrices & Differentitial Calculus </td>
-            <td>Sem1</td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="https://bento.me/shashwatupadhyay">Shashwat Upadhyay</a></td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>BTech</td>
-            <td>Applied Physics</td>
-            <td>Sem1</td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="https://bento.me/shashwatupadhyay">Shashwat Upadhyay</a></td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>BTech</td>
-            <td>Principles Of Digital Electronic</td>
-            <td>Sem1</td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="https://bento.me/shashwatupadhyay">Shashwat Upadhyay</a></td>
-          </tr>
-          <td>5</td>
-            <td>BTech</td>
-            <td>Principles Of Digital Electronic</td>
-            <td>Sem1</td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="https://bento.me/shashwatupadhyay">Shashwat Upadhyay</a></td>
-          </tr>
-          <td>6</td>
-            <td>BTech</td>
-            <td>Principles Of Digital Electronic</td>
-            <td>Sem1</td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="https://bento.me/shashwatupadhyay">Shashwat Upadhyay</a></td>
-          </tr>
-
-          <!-- <td></td>
-            <td>BTech</td>
-            <td>Principles Of Digital Electronic</td>
-            <td>Sem1</td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="#">To Be uploaded soon </a></td>
-            <td><a href="https://bento.me/shashwatupadhyay">Shashwat Upadhyay</a></td>
-          </tr> -->
-        </tbody>
-      </table>
+  <!-- !-- Mode Toggle --> 
+    <div class="mode-toggle">
+        <button id="mode-button">Switch Theme </button>
     </div>
-    <footer 
-        style=" 
-        position: absolute;
-        bottom: 20px;
-        color: #b1a6a6;
-        font-size: 0.8rem;
-        ">
-        Made with Love -  <a href="contact.html" style="color: #ffdf00;"> Team PrepZen</a>
-    </footer>
-  </div>
-</body>
 
+  <script>
+    const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQfAuSkkm0SsllJmAUGWgDtg7luk1BZshNNCvnj_Jt7PWr4rEp6sat04Zr2u0ggk2kJVeigPh6i8Uex/pub?output=csv";
 
-<script>const searchInput = document.getElementById('searchInput');
-  const table = document.getElementById('contentTable');
-  const rows = table.getElementsByTagName('tr');
-  
-  searchInput.addEventListener('keyup', () => {
-    const filter = searchInput.value.toLowerCase();
-  
-    for (let i = 1; i < rows.length; i++) { // Skip the header row
-      const row = rows[i];
-      const cells = row.getElementsByTagName('td');
-      let rowMatches = false;
-  
-      for (let j = 0; j < cells.length; j++) {
-        const cell = cells[j];
-        if (cell.textContent.toLowerCase().includes(filter)) {
-          rowMatches = true;
-          break;
-        }
-      }
-  
-      row.style.display = rowMatches ? '' : 'none';
+    // Fetch and display data
+    async function fetchSheetData() {
+      const response = await fetch(sheetURL);
+      const data = await response.text();
+      const rows = data.split("\n").map(row => row.split(","));
+      populateTable(rows);
     }
-  });
+
+    // Populate table with fetched data
+    function populateTable(rows) {
+      const tableBody = document.querySelector("#dataTable tbody");
+      tableBody.innerHTML = ""; // Clear existing data
+
+      for (let i = 1; i < rows.length; i++) { // Skip header row
+        const row = rows[i];
+        const tr = document.createElement("tr");
+
+        row.forEach(cell => {
+          const td = document.createElement("td");
+          td.textContent = cell.trim();
+          tr.appendChild(td);
+        });
+
+        tableBody.appendChild(tr);
+      }
+    }
+
+    // Filter table data
+    function filterTable() {
+      const searchTerm = document.getElementById("searchBar").value.toUpperCase();
+      const table = document.getElementById("dataTable");
+      const rows = table.getElementsByTagName("tr");
+
+      for (let i = 1; i < rows.length; i++) { // Skip header row
+        const cells = rows[i].getElementsByTagName("td");
+        let match = false;
+
+        for (const cell of cells) {
+          if (cell.textContent.toUpperCase().includes(searchTerm)) {
+            match = true;
+            break;
+          }
+        }
+
+        rows[i].style.display = match ? "" : "none";
+      }
+    }
+
+     // Mode Toggle
+     const modeButton = document.getElementById('mode-button');
+        let mode = "light";
+
+        modeButton.addEventListener("click", () => {
+            const body = document.body;
+            if (mode === "light") {
+                body.classList.remove("light-mode");
+                body.classList.add("dark-mode");
+                mode = "dark";
+            } else if (mode === "dark") {
+                body.classList.remove("dark-mode");
+                body.classList.add("gradient-mode");
+                mode = "gradient";
+            } else {
+                body.classList.remove("gradient-mode");
+                body.classList.add("light-mode");
+                mode = "light";
+            }
+        });
+    
+
+    // Initialize
+    fetchSheetData();
   </script>
+
+</body>
 </html>
