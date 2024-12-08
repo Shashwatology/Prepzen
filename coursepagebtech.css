@@ -1,12 +1,61 @@
 
 body {
+
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(90deg, #192d49, #0f0f04, #5c5607)#000;
+    font-family: "Poppins", sans-serif;
+    background: rgb(37, 36, 36);
     color: white;
-    overflow: hidden;
+    transition: all 0.5s;
   }
+
+
+  
+    
+    /* Gradient Mode */
+    /* Dark Mode */
+    body.dark-mode {
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+    }
+
+    /* Light Mode */
+    body.light-mode {
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+
+
+    body.gradient-mode {
+      background: 
+          linear-gradient(180deg, rgba(170, 168, 20, 0.01), rgb(231, 136, 72) 85%),
+          radial-gradient(ellipse at top left, rgba(112, 73, 13, 0.5), transparent 50%), /* Replace with your primary color */
+          radial-gradient(ellipse at top right, rgba(24, 70, 102, 0.5), transparent 50%), /* Replace with your accent color */
+          radial-gradient(ellipse at center right, rgba(15, 13, 146, 0.5), transparent 50%), /* Replace with your violet color */
+          radial-gradient(ellipse at center left, rgba(134, 13, 80, 0.937), transparent 50%); /* Replace with your pink color */
+      
+      color: rgb(10, 2, 73);
+    }
+
+#searchBar {
+  align-items: center;
+  padding: 15px;
+  width: 50%;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  background: #e2e9a2;
+  color: white;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+#searchBar:focus {
+  background: #56b36d;
+  box-shadow: 0 0 15px #ffcc33;
+}
 
 
   h1 {
@@ -49,6 +98,11 @@ body {
     align-items: center;
   }
   
+
+tbody td a:hover {
+  color: white;
+}
+
   .table-container {
     margin-top: 20px;
     overflow-x: auto;
@@ -98,3 +152,34 @@ body {
     text-decoration: none;
   }
   
+  #mode-button:hover {
+    background: orange;
+    transform: scale(1.05);
+  }
+
+  /* Add spacing between the search bar and the table */
+.search-container {
+  text-align: center;
+  margin: 20px 0 40px; /* Adjusted bottom margin to create more space */
+}
+
+/* Position the button on the right side of the page */
+#mode-button {
+  position: fixed;
+  top: 560px;
+  right: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  background: yellow;
+  color: #222;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  z-index: 1000; /* Ensures it stays on top */
+}
+
+#mode-button:hover {
+  background: orange;
+  transform: scale(1.05);
+}
