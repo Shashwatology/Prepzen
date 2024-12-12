@@ -324,3 +324,26 @@ footer p {
     color: #d09d0d; /* Highlighted color for "Disclaimer" */
     font-weight: bold;
 }
+
+
+/* Social Media Icons */
+/* Footer Social Links */
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.social-links a {
+    margin: 0 10px;
+}
+
+.social-icon {
+    width: 44px;
+    height: 54px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
