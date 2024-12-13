@@ -71,6 +71,10 @@ body.gradient-mode {
     z-index: 7000;
 }
 
+.nav-container {
+    display: flex;
+}
+
 /* Logo Styling */
 .logo h1 {
     margin: 0;
@@ -81,10 +85,14 @@ body.gradient-mode {
 }
 
 /* Navigation Links Styling */
+#nav-div {
+    margin-left: 30%;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
-    margin: 0;
+    margin: 12px 0 0;
     padding: 0;
     white-space: nowrap;
 }
@@ -210,7 +218,6 @@ footer {
 
 /* Footer text styling */
 footer p {
-    fo
     font-size: 16px;
     margin-bottom: 20px; /* Add space below text */
     font-family: 'Times New Roman', Times, serif;
