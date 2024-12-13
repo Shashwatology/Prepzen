@@ -85,6 +85,10 @@ body.gradient-mode {
 }
 
 /* Navigation Links Styling */
+#nav-div {
+    margin-left: 30%;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
