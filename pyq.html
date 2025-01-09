@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PYQ</title>
+    <style>
+        :root {
+            --bg-color-light: #f4f4f9;
+            --text-color-light: #333;
+            --highlight-color-light: #383870;
+
+            --bg-color-dark: #000000;
+            --text-color-dark: #49cf20;
+            --highlight-color-dark: #7f7fd1;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color-light);
+            color: var(--text-color-light);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark {
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--highlight-color-light);
+        }
+
+        body.dark h1 {
+            color: var(--highlight-color-dark);
+            color: wheat;
+        }
+
+        .theme-toggle {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .theme-toggle button {
+            padding: 10px 20px;
+            background-color: var(--highlight-color-light);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        body.dark .theme-toggle button {
+            background-color: var(--highlight-color-dark);
+        }
+
+        .search-box {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .search-box input:focus {
+            border-color: var(--highlight-color-light);
+            outline: none;
+        }
+
+        body.dark .search-box input:focus {
+            border-color: var(--highlight-color-dark);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table thead {
+            background-color: var(--highlight-color-light);
+            color: white;
+        }
+
+        body.dark table thead {
+            background-color: var(--highlight-color-dark);
+        }
+
+        table th,
+        table td {
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        body.dark table tr:nth-child(even) {
+            background-color: #000000;
+        }
+
+        table tr:hover {
+            background-color: #ebc2e4;
+        }
+
+        body.dark table tr:hover {
+            background-color: #0e0a11;
+        }
+
+        .upload-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        body.dark .upload-section {
+            background-color: #2a2a3f;
+        }
+
+        .upload-section h2 {
+            margin-bottom: 15px;
+            color: var(--highlight-color-light);
+        }
+
+        body.dark .upload-section h2 {
+            color: var(--highlight-color-dark);
+        }
+
+        .upload-section input[type="file"] {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .upload-section button {
+            padding: 10px 20px;
+            background-color: var(--highlight-color-light);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        body.dark .upload-section button {
+            background-color: var(--highlight-color-dark);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="theme-toggle">
+            <button onclick="toggleTheme()">Toggle Theme</button>
+        </div>
+
+        <h1>Previous Year Question Paper </h1>
+
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Subject " oninput="searchTable()">
+        </div>
+
+        <table id="pyqTable">
+            <thead>
+                <tr>
+                    <th>Sr. No</th>
+                    <th>Subject</th>
+                    <th>Exam</th>
+                    <th>Academic Year</th>
+                    <th>Class</th>
+                    <th>Branch</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Applied Physics </td>
+                    <td>ESE</td>
+                    <td>2024-25</td>
+                    <td>FY (Sem-1) </td>
+                    <td> All </td>
+                    <td><a
+                            href="https://drive.google.com/file/d/1WiKjoxYl62MgQGt9Pxw4sXYsKvxWiZTL/view?usp=sharing"><button>Download</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Matrics and Differential Calculus </td>
+                    <td>MSE</td>
+                    <td>2024-25</td>
+                    <td>FY (Sem-1) </td>
+                    <td> All </td>
+                    <td><a href="https://drive.google.com/file/d/1v8Q1S3kf5-2Fk8pj9lqRAGTWUVRC_iOc/view?usp=sharing"><button>Download</button></a></td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>Principle of Digital Electronics</td>
+                    <td>ESE</td>
+                    <td>2024-25</td>
+                    <td>FY (Sem-1) </td>
+                    <td> All </td>
+                    <td><a
+                            href="https://drive.google.com/file/d/1Jdu0K2ZcYqtUPO8k5B9o8Cvq12c-Q2Af/view?usp=drive_link"><button>Download</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Applied Physics </td>
+                    <td>MSE</td>
+                    <td>2024-25</td>
+                    <td>FY (Sem-1) </td>
+                    <td> All </td>
+                    <td><a
+                            href="https://drive.google.com/file/d/1HfoTxBG-1RGJpCGP1YhXl2cmgob1H1kG/view?usp=sharing"><button>Download</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Principle of Digital Electronics </td>
+                    <td>MSE</td>
+                    <td>2024-25</td>
+                    <td>FY (Sem-1) </td>
+                    <td> All </td>
+                    <td><a
+                            href="https://drive.google.com/file/d/1MGOr2UBRmySO2WNpGaw9BOPA3buldA6C/view?usp=sharing"><button>Download</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Matrics and Differential Calculus</td>
+                    <td>ESE</td>
+                    <td>2024-25</td>
+                    <td>FY (Sem-1) </td>
+                    <td> All </td>
+                    <td><a
+                            href="https://drive.google.com/file/d/1nC6-RTPGXhHCk-vawK1NmD1O3FOSoZ8z/view?usp=drive_link"><button>Download</button></a>
+                    </td>
+                </tr>
+                
+                
+            </tbody>
+        </table>
+
+        <div class="upload-section">
+            <h2>Upload New PYQ</h2>
+            <form action="#" method="post" enctype="multipart/form-data">
+                <input type="file" name="pyqFile" required>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark');
+        }
+
+        function searchTable() {
+            const input = document.getElementById("search").value.toLowerCase();
+            const table = document.getElementById("pyqTable");
+            const rows = table.getElementsByTagName("tr");
+
+            for (let i = 1; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName("td");
+                let match = false;
+
+                for (let j = 0; j < cells.length; j++) {
+                    if (cells[j].innerText.toLowerCase().includes(input)) {
+                        match = true;
+                        break;
+                    }
+                }
+
+                rows[i].style.display = match ? "" : "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
