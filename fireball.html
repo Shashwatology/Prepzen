@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Login</title>
+    <title>SAKEC Login</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -14,17 +14,13 @@
             margin: 0;
             background-color: #f0f2f5;
         }
-
         .login-container {
             background-color: white;
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             text-align: center;
-            max-width: 400px;
-            width: 90%;
         }
-
         .login-button {
             background-color: #4285f4;
             color: white;
@@ -36,56 +32,23 @@
             display: flex;
             align-items: center;
             margin: 20px auto;
-            transition: background-color 0.3s;
-        }
-
-        .login-button:hover {
-            background-color: #357abd;
-        }
-
-        .google-icon {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-        }
-
-        .user-info {
-            display: none;
-            margin-top: 20px;
-        }
-
-        .user-info.visible {
-            display: block;
         }
     </style>
 </head>
 <body>
     <div class="login-container">
-        <h1>Welcome</h1>
+        <h1>SAKEC Login</h1>
         <button id="googleLogin" class="login-button">
-            <img src="https://www.google.com/favicon.ico" alt="Google" class="google-icon">
+            <img src="https://www.google.com/favicon.ico" alt="Google" style="margin-right: 10px;">
             Sign in with Google
         </button>
-        <div id="userInfo" class="user-info">
-            <img id="userPhoto" width="96" height="96" style="border-radius: 50%">
-            <h2 id="userName"></h2>
-            <p id="userEmail"></p>
-            <button id="signOut" class="login-button">Sign Out</button>
-        </div>
+        <div id="error" style="color: red;"></div>
     </div>
 
     <script type="module">
-        // Import the functions you need from the SDKs
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-        import { 
-            getAuth, 
-            signInWithPopup, 
-            GoogleAuthProvider,
-            onAuthStateChanged,
-            signOut 
-        } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
-        // Your web app's Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyChezJpZAR4o2becdY4_Wi7sDmoBpaToL4",
             authDomain: "sakec-52079.firebaseapp.com",
@@ -96,78 +59,29 @@
             measurementId: "G-ZTW7TLPLD4"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth();
         const provider = new GoogleAuthProvider();
 
-        // DOM elements
-        const googleLoginBtn = document.getElementById('googleLogin');
-        const signOutBtn = document.getElementById('signOut');
-        const userInfo = document.getElementById('userInfo');
-        const userName = document.getElementById('userName');
-        const userEmail = document.getElementById('userEmail');
-        const userPhoto = document.getElementById('userPhoto');
-
-        // Sign in with Google
-        googleLoginBtn.addEventListener('click', () => {
-            signInWithPopup(auth, provider)
-                .then((result) => {
-                    // Handle successful login
-                    updateUserInfo(result.user);
-                })
-                .catch((error) => {
-                    console.error(error);
-                    alert('Login failed: ' + error.message);
-                });
-        });
-        const signInWithGoogle = async () => {
-  try {
-    const auth = getAuth();
-    const provider = new GoogleAuthProvider();
-    // Clear any existing pending auth requests
-    await signOut(auth);
-    const result = await signInWithPopup(auth, provider);
-  } catch (error) {
-    if (error.code === 'auth/cancelled-popup-request') {
-      // Handle mobile devices differently
-      const auth = getAuth();
-      const provider = new GoogleAuthProvider();
-      await signInWithRedirect(auth, provider);
-    }
-  }
-};
-
-        // Sign out
-        signOutBtn.addEventListener('click', () => {
-            signOut(auth).then(() => {
-                userInfo.classList.remove('visible');
-                googleLoginBtn.style.display = 'flex';
-            }).catch((error) => {
+        document.getElementById('googleLogin').addEventListener('click', async () => {
+            try {
+                const result = await signInWithPopup(auth, provider);
+                const email = result.user.email;
+                
+                if (!email.endsWith('@sakec.ac.in')) {
+                    await auth.signOut();
+                    document.getElementById('error').textContent = 'Please use your SAKEC email address to login.';
+                    return;
+                }
+                
+                // Successful login with SAKEC email
+                window.location.href = '/dashboard.html'; // Redirect to dashboard or home page
+            } catch (error) {
                 console.error(error);
-            });
-        });
-
-        // Update UI with user info
-        function updateUserInfo(user) {
-            if (user) {
-                userName.textContent = user.displayName;
-                userEmail.textContent = user.email;
-                userPhoto.src = user.photoURL;
-                userInfo.classList.add('visible');
-                googleLoginBtn.style.display = 'none';
-            }
-        }
-
-        // Listen for auth state changes
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                updateUserInfo(user);
-            } else {
-                userInfo.classList.remove('visible');
-                googleLoginBtn.style.display = 'flex';
+                document.getElementById('error').textContent = 'Login failed. Please try again.';
             }
         });
     </script>
 </body>
 </html>
+
