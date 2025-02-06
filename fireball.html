@@ -3,115 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAKEC Campus Connect</title>
+    <title>SAKEC Campus Chat</title>
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             margin: 0;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            max-width: 400px;
-            width: 90%;
-        }
-
-        .fireball-logo {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 20px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .login-button {
-            background: #4285f4;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            margin: 20px auto;
-            transition: transform 0.3s;
-        }
-
-        .login-button:hover {
-            transform: scale(1.05);
-        }
-
-        .error-message {
-            color: #ff4444;
-            margin: 10px 0;
-        }
-
-        .dashboard {
-            display: none;
+            padding: 20px;
+            background: #f0f2f5;
         }
 
         .chat-container {
-            margin-top: 20px;
-            background: #fff;
-            border-radius: 10px;
-            padding: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
         }
 
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .messages {
+            height: 500px;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
             margin-bottom: 20px;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .message-header {
+            font-weight: bold;
+            color: #4285f4;
+            margin-bottom: 5px;
+        }
+
+        .message-time {
+            font-size: 0.8em;
+            color: #666;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 10px;
+        }
+
+        input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 24px;
+            background: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Login Section -->
-        <div id="loginSection">
-            <img src="fireball-logo.gif" alt="Fireball Logo" class="fireball-logo">
-            <h1>SAKEC Campus Connect</h1>
-            <button id="googleLogin" class="login-button">
-                <img src="google-icon.png" alt="Google" style="margin-right: 10px;">
-                Sign in with Google
-            </button>
-            <div id="errorMessage" class="error-message"></div>
-        </div>
-
-        <!-- Dashboard Section -->
-        <div id="dashboard" class="dashboard">
-            <div class="user-profile">
-                <img id="userPhoto" width="50" height="50" style="border-radius: 50%">
-                <span id="userEmail"></span>
-            </div>
-            <div class="chat-container">
-                <h2>Campus Chat</h2>
-                <div id="chatMessages"></div>
-                <input type="text" id="messageInput" placeholder="Type your message...">
-                <button onclick="sendMessage()">Send</button>
-            </div>
+    <div class="chat-container">
+        <h1>SAKEC Campus Chat</h1>
+        <div class="messages" id="messages"></div>
+        <div class="input-area">
+            <input type="text" id="messageInput" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
         </div>
     </div>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-        import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+        import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyChezJpZAR4o2becdY4_Wi7sDmoBpaToL4",
@@ -124,7 +99,6 @@
         };
 
         const app = initializeApp(firebaseConfig);
-        const auth = getAuth();
         const db = getFirestore(app);
         const provider = new GoogleAuthProvider();
 
@@ -133,7 +107,7 @@
                 const result = await signInWithPopup(auth, provider);
                 const email = result.user.email;
                 
-                if (!email.endsWith('int@sakec.ac.in')) {
+                if (!email.endsWith('@sakec.ac.in')) {
                     await auth.signOut();
                     document.getElementById('errorMessage').textContent = 'Please use your SAKEC student email ID';
                     return;
@@ -174,7 +148,7 @@
             const message = messageInput.value.trim();
             
             if (message && auth.currentUser) {
-                await addDoc(collection(db, 'messages'), {
+                await addDoc(messagesRef, {
                     text: message,
                     email: auth.currentUser.email,
                     timestamp: new Date()
