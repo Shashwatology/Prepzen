@@ -133,7 +133,7 @@
                 const result = await signInWithPopup(auth, provider);
                 const email = result.user.email;
                 
-                if (!email.endsWith('@sakec.ac.in')) {
+                if (!email.endsWith('int@sakec.ac.in')) {
                     await auth.signOut();
                     document.getElementById('errorMessage').textContent = 'Please use your SAKEC student email ID';
                     return;
