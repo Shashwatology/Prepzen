@@ -7,10 +7,12 @@
   <link rel="stylesheet" href="contributor.css">
 </head>
 <body>
-  <h1>Our Team</h1>
-
-  <!-- Project Lead Section -->
-  <div class="section lead-section">
+  
+  <div class="background-animation"></div>
+  <br>
+  <h1 class="title">Meet Our Team</h1>
+<!-- Project Lead Section -->
+<div class="section lead-section">
     <div class="lead-card">
       <div class="circle-image">
         <img src="shashwat.jpeg" alt="Shashwat's Photo">
@@ -26,67 +28,74 @@
       </div>
     </div>
   </div>
-
   <!-- Contributors Section -->
-  <div class="section">
-    <h2>Contributors</h2>
-    <div class="card-container">
-      <!-- Ritesh's Card -->
-      <div class="card">
-        <div class="circle-image">
-          <img src="ritesh.jpg" alt="Ritesh's Photo">
-        </div>
-        <div class="content">
-          <h3>Ritesh Sah</h3> <br>
-          <div id="studentbio ">
-            <p>Student at IIT Madras </p>
-          </div>
-          <p>Ritesh is a contributor passionate about development and innovation. He is instrumental in turning ideas into reality.</p>
-          <div class="social-icons">
-            <a href="https://www.linkedin.com/in/ritesh-sah-0901a62a1/"><img src="linkedin.png" alt="LinkedIn"></a>
-            <a href="https://github.com/riteshsah235"><img src="github.png" alt="GitHub"></a>
-            <a href="https://www.instagram.com/ritesh_kanti/?__pwa=1"><img src="instagram.png" alt="Instagram"></a>
-          </div>
-        </div>
-      </div>
+  <h1 class="contributors-title">Core Team </h1>
+  <div class="card-container">
 
-      <!-- Be the Next Contributor Card -->
-      <div class="card next-contributor">
-        <div class="circle-placeholder">
-          <img style="width: 4cm; height: 2cm;" src="You.png" alt="You">
+    <div class="card">
+      <div class="circle-image">
+        <img src="sargam.jpg" alt="Sargam's Photo">
+      </div>
+      <div class="content">
+        <h3>Sargam Sharma</h3>
+        <p>(Student at IIT Madras)</p>
+        <p>A confident and driven learner, blending AI enthusiasm with development skills while leveraging marketing insights to ensure strategic growth and impact.</p> <br>
+        <div class="social-icons">
+          <a href="http://www.linkedin.com/in/sargam-sharma-9664b1301"><img src="linkedin.png" alt="LinkedIn"></a>
+          <a href="#"><img src="github.png" alt="GitHub"></a>
+          <a href="https://www.instagram.com/sargamsharma_15/"><img src="instagram.png" alt="Instagram"></a>
         </div>
-        <h3>Be the Next Contributor</h3>
-        <a href="https://forms.gle/qiQwsyhdDSGup4v19" class="btn">Join Now</a>
       </div>
     </div>
-  </div>
-  
-    <!-- Mode Toggle -->
-    <div class="mode-toggle">
-      <button id="mode-button">Switch Theme </button>
+
+    <div class="card">
+      <div class="circle-image">
+        <img src="roma.jpg" alt="Roma's Photo">
+      </div>
+      <div class="content">
+        <h3>Roma Yadav</h3>
+        <p>(Student at IIT Madras)</p>
+        <p>A full-stack developer with a strong command of the MERN stack, seamlessly blending technical expertise with intuitive UI/UX design to craft impactful web experiences.</p> <br>
+        <div class="social-icons">
+          <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
+          <a href="https://www.linkedin.com/in/roma-y-36a506287/"><img src="github.png" alt="GitHub"></a>
+          <a href="#"><img src="instagram.png" alt="Instagram"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="circle-image">
+        <img src="madhura.jpg" alt="Madhura's Photo">
+      </div>
+      <div class="content">
+        <h3>Madhura Patil</h3>
+        <p>(Student at IIT Madras)</p>
+        <p>Blending a designer’s eye, a photographer’s vision, and an analytical mindset to craft stunning visual narratives .  </p> <br>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/madhura-patil-5665551b9/"><img src="linkedin.png" alt="LinkedIn"></a>
+          <a href="#"><img src="github.png" alt="GitHub"></a>
+          <a href="https://www.instagram.com/madhuradp_/"><img src="instagram.png" alt="Instagram"></a>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <script>
-    // Mode Toggle
-    const modeButton = document.getElementById('mode-button');
-        let mode = "light";
+  <!-- Mode Toggle -->
+            <div class="mode-toggle">
+              <button id="mode-button">Switch Theme</button>
+            </div>
+            <script>
+              const modeButton = document.getElementById('mode-button');
+          let mode = "dark";
 
-        modeButton.addEventListener("click", () => {
-            const body = document.body;
-            if (mode === "light") {
-                body.classList.remove("light-mode");
-                body.classList.add("dark-mode");
-                mode = "dark";
-            } else if (mode === "dark") {
-                body.classList.remove("dark-mode");
-                body.classList.add("gradient-mode");
-                mode = "gradient";
-            } else {
-                body.classList.remove("gradient-mode");
-                body.classList.add("light-mode");
-                mode = "light";
-            }
-        });
+          modeButton.addEventListener("click", () => {
+              document.body.classList.toggle("light-mode");
+          });
+
   </script>
+  <script src="script.js"></script>
+
 </body>
 </html>

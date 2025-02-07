@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
 /* General Reset */
 ::-webkit-scrollbar {
     display: none;
@@ -47,18 +49,6 @@ body.light-mode {
 body.dark-mode {
     background-color: #1e1e1e;
     color: #e0e0e0;
-}
-
-/* Gradient Mode */
-body.gradient-mode {
-    background: 
-        linear-gradient(180deg, rgba(50, 105, 184, 0.01), rgb(194, 182, 15) 85%),
-        radial-gradient(ellipse at top left, rgba(234, 154, 34, 0.5), transparent 50%), /* Replace with your primary color */
-        radial-gradient(ellipse at top right, rgba(61, 119, 160, 0.5), transparent 50%), /* Replace with your accent color */
-        radial-gradient(ellipse at center right, rgba(140, 205, 36, 0.5), transparent 50%), /* Replace with your violet color */
-        radial-gradient(ellipse at center left, rgba(177, 60, 231, 0.937), transparent 50%); /* Replace with your pink color */
-    
-    color: rgb(10, 2, 73);
 }
 
 /* Navbar */
